@@ -1,0 +1,26 @@
+Q
+
+Compare and contrast the use of local variables against global variables (or class variables).
+Why is strict type checking useful? Also, can you name examples where it could be a hindrance?
+The word "algorithm" roughly means a step-by-step description of how to do some task. Many algorithms are famous enough to have names: quicksort, heapsort, Shell sort, Fast Fourier Transform (FFT). Have you ever read a description of any of these? Which ones? Can you think of others?
+Many programmer hours are wasted optimizing programs that suffer not so much from inefficient implementation as from poor choice of algorithms. Sorting programs offer up some of the best examples. How could you measure the efficiency of a sorting algorithm?
+
+
+
+A
+
+1. 
+	global variables can hold the values in a wider scope which makes it plausible to convey values through sub-program like functions.
+	And local variables are used for temperary values that is meant to use only inside some sub-programs. They are not expected to survive outside the sub-scope.
+	From a lower level point of view, local variables are push into the stack with the function. So when functions finish excuting, along with the local variables they will be poped. Thus local variables will not exist in the program anymore.
+
+2.
+	As mentioned in the commentary, strict type check could stop bugs before the runtime.
+	type checking are probably the hindrance for coding efficiency and elegance. With less flexibility in type comes more declaration operations. 
+
+3.
+	I know some basic sorting algorithm including quicksort, heapsort, except for Shell sort. And I learnt FFT from DSP course, which is basically a divide and conquer strategy.
+	Other algorithms I've heard like: DFS, BFS, Dijkstra.
+
+4. 
+	I believe people use big o notation to analyze the effiency of algorithm.

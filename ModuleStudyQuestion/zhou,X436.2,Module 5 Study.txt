@@ -1,0 +1,27 @@
+Q
+
+When should you use an interface, and when should you use an abstract class?
+When should you use final methods, and when should you make a class final? Can an interface be final? How about an abstract class?
+What happens if you implement two interfaces , each of which have a method named draw()for example, Cowboy and Shape (a Wild West video game program, perhaps)?
+What happens if you override a method in a parent class, but provide a different return type? Different argument types?
+
+A
+
+1.When should you use an interface, and when should you use an abstract class?
+First of all the difference between Abstract and Interface:
+Abstract is a class that contains the abstract method, providing a "signature" for the derivate class which indicate the childern to implement.
+Interface has higher abstraction level which only allow abstract methods and restricts the class member to be `public static final`
+So when to use them, here's the quote from stackoverflow[https://stackoverflow.com/questions/479142/when-to-use-an-interface-instead-of-an-abstract-class-and-vice-versa]:
+Use abstract classes and inheritance if you can make the statement “A is a B”. Use interfaces if you can make the statement “A is capable of [doing] as”.
+
+2.When should you use final methods, and when should you make a class final? Can an interface be final? How about an abstract class?
+The main principle of using final method is to avoid the unexpected override in derivate class. Another good point I find is that final could provide the opportunity for compiler to optimize the performance(https://javarevisited.blogspot.com/2013/12/when-to-make-method-final-in-java.html).
+A final class is simply a class that can't be extended. So I guess in the situation when a class can't be inherited in a good manner or aren't expected to be inherited it's good to use final class.
+Since interface and abstract class can't be instantiated, it doesn't make sense if we use final word here.
+
+3.What happens if you implement two interfaces , each of which have a method named draw()for example, Cowboy and Shape (a Wild West video game program, perhaps)?
+If their return type is identical, it would be fine. Or there'll be an error.
+
+4.What happens if you override a method in a parent class, but provide a different return type? Different argument types?
+For different return type, it's doable as long as the new return value is assignable to the overriden one.
+For arguments, it's called overloading.

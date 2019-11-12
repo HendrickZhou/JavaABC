@@ -1,0 +1,32 @@
+Q
+
+What will happen if you abuse the CharStack class by pop()ing more characters than you push()? Try it and see.
+When should you use a package to contain a group of classes, and when should you use nested classes?
+Why is it not advisable to make everything public?
+Overloaded functions were introduced into the C++ language so that constructors could be overloaded. Can you think of some other uses for overloaded functions besides having multiple constructors in a class?
+
+A
+
+1. 
+	The monitor is `hasMoreElements` method obviously. You have to use this as a bundle with `pop`.
+	If pop is abused, the index of would be a negative number and the array index will be out of bounds, like this:
+	```
+	Exception in thread "main" java.lang.ArrayIndexOutOfBoundsException: Index -1 out of bounds for length 20
+	at CharStack.pop(CharStack.java:33)
+	at CharStack.main(CharStack.java:54)
+	```
+
+2.
+	Packages are used for organizing the classes with similar functionality or purpose.
+	The real bonus is packages avoids name collision
+	Plus according to wiki(http://en.wikipedia.org/wiki/Java_package), java packages are faster to be downloaded in a group
+
+	About when to use nested class, official tutorial offers a good article:
+	https://docs.oracle.com/javase/tutorial/java/javaOO/nested.html
+	To make it simple, core idea is to encourage more integrity for class with strong dependency with each other.
+
+3.
+	Making everything open means wider exposure to potential irrational user behaivour and insecurity, which could cause inconspicuouse bugs. 
+
+4. 
+	It's probaby not a function but I know "+" can be overloaded for different functionality like string concatenate.

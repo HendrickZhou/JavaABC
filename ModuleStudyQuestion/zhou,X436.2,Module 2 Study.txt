@@ -1,0 +1,63 @@
+Q
+
+Why is comparing a string object with == different from comparing it with the method equals()?
+What is the difference between an empty string ("") and a null?
+What does "deprecated" mean? Can you think of deprecated features in any other programming languages? How long were they in the language before being removed (or if they are still in them, since when)?
+
+
+A
+
+1. 
+	First of all `==` is an operator but `equals()` is a method (this part involves in overloading in java). So `==` has wider use range on java primitive types while `equals()` can only work on objects.
+	But more importantly, `==` check if the 2 item point to the same object or the same memory space. While `equals()` just care about the content.
+	One thing to notice is `equals()` is actually a method overrideable, so the equality of two contents is entirely depent on your implementation.
+	I did a little test here:
+		String a = "what";
+        String b = new String("what");
+        String c = a;
+
+        if(a == b)
+        {
+            System.out.println("a == b");
+        }
+        if(a == c)
+        {
+            System.out.println("a == c");
+        }
+
+        if(c == b)
+        {
+            System.out.println("c == b");
+        }
+
+        if(a.equals(b))
+        {
+            System.out.println("a equals b");
+        }
+
+        if(a.equals(c))
+        {
+            System.out.println("a equals c");
+        }
+        if(b.equals(c))
+        {
+            System.out.println("b equals c");
+        }
+
+    As expected, result is:
+    	a == c
+		a equals b
+		a equals c
+		b equals c
+
+2. 
+	The most important diffrence is empty string creates the object, which means there is a string object existing somewhere in the memory. Yet null string is not created.
+	If I try to get length of a null and a empty string:
+		len of emp: 0
+		Exception in thread "main" java.lang.NullPointerException
+			at testArray.main(testArray.java:11)
+
+3. 
+	From java documentation:
+	A program element annotated @Deprecated is one that programmers are discouraged from using, typically because it is dangerous, or because a better alternative exists. Compilers warn when a deprecated program element is used or overridden in non-deprecated code.
+	one deprecated features in python is time.clock(), which is deprecated since python3.3. The newer method time.perf_counter is suggested.

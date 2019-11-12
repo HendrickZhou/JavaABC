@@ -1,0 +1,127 @@
+<table style="margin-left: auto; margin-right: auto;" border="1" cellspacing="2" cellpadding="2">
+<caption>Table: Statements</caption>
+<tbody>
+<tr>
+<td>Statement</td>
+<td>
+<p>Compile without errors?</p>
+</td>
+<td>Run without errors?</td>
+<td>Reason for Error</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">SaturnSL1 sl = new SaturnSL1( );</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">HondaCivic hc = new HondaCivic( );</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">Japanese jp = new Japanese( );</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>abstract class can't be initlized</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">German gr = new MercedesC230( );</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">ChevyS10 cs = new Truck( );</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>abstract class can't be initlized</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">SubaruOutback sb = new SubaruOutback( );</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">Domestic dm = sl;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">dm = hc;</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>incompatible types: HondaCivic cannot be converted to Domestic</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">dm = (Domestic) hc;</span></td>
+<td>no errors</td>
+<td>runtime error!</td>
+<td>java.lang.ClassCastException: class HondaCivic cannot be cast to class Domestic (HondaCivic and Domestic are in unnamed module of loader 'app')</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">dm = cs;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">dm = (Domestic) cs;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">Import im = sb;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">gr = im;</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>incompatible types: Import cannot be conve    rted to German</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">gr = (German) im;</span></td>
+<td>no errors</td>
+<td>runtime error!</td>
+<td>java.lang.ClassCastException: class SubaruOutback cannot be cast to class German (SubaruOutback and German are in unnamed module of loader 'app')</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">jp = im;</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>incompatible types: Import cannot be converted to Japanese</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">jp = (German) im;</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>incompatible types: German cannot be converted to Japanese</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">jp = (Japanese) im;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">Automobile a = cs;</span></td>
+<td>with error!</td>
+<td>/</td>
+<td>incompatible types: ChevyS10 cannot be converted to Automobile</td>
+</tr>
+<tr>
+<td><span style="color: #ff0000;">a = hc;</span></td>
+<td>no errors</td>
+<td>no errors</td>
+<td>/</td>
+</tr>
+</tbody>
+</table>

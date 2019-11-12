@@ -1,0 +1,85 @@
+Q
+
+1.What kinds of diagnostics does your Java compiler produce when you feed it erroneous input? To find out, start with the SumOneToTen program and make small changes until you see errors. How helpful are the compiler messages? Are there any you think could be improved?
+2.What happens if you assign a real-number value (such as 2.3) to an integer variable in Java? Try it and see. What happens in C or in Visual Basic, or any other language you know? Why is this a good thing? Try it with a quoted string of characters: int x = "What happens?"
+3.How large is the compiled version of SumOneToTen (i.e., the .class file)? How large would an executable compiled from your favorite language be? Why is Java different (or not)?
+4.What features make a program hard to understand? easy to understand? hard to modify? What was the weirdest bug you ever found in a program? What feature, added to the language the program was written in, might have prevented the bug from ever happening?
+5.It is obvious that what a programming language is capable of expressing limits what kind of programs one can write with it: Java has no "address of" operator, so it would be very hard to use it to write UNIX device drivers! More often, though, limitations arise because a program, when expressed in some language, is very convoluted or difficult to follow. What kinds of programs are hard to understand when written in the language(s) you already know? (Example: FORTRAN 77, a very good language for numerical computation, is quite horrible at handling structured data and has no recursion, so writing a recursive-descent language parser would be impossibly complex.)
+
+
+A
+
+1. 
+	I've made 3 types of error according to the relative stage of compiling.
+	First one is an uninitialized variable x. After excuting `javac` command to compile the file, the command line told me 
+	"
+	error: variable x might not have beeb initialized
+			x+=i;
+	1 error
+
+	"
+	Second one is a missed semicolons & a `break` in the wrong place.
+	"
+	error: ';' expected
+	        int i = 0
+	                 ^
+	1 error
+	"
+	I only got the error message for the first one though, I guess java compiler would just throw a bug right after meeting the first one.
+
+
+	Thrid one is an illegal lexical item
+	I wrote something like this: `inc i = 0;`, and got this:
+	"
+	cannot find symbol
+	        inc i = 0;
+	        ^
+	  symbol:   class inc
+	  location: class SumOneToTen
+	1 error
+	"
+
+	Anyway, javac does a great job as a compiler
+
+
+2.
+	got an error like this:
+	"
+	error: incompatible types: possible lossy conversion from double to int
+	        int i = 2.3;
+	                ^
+	1 error
+	"
+
+	And I try c with a line like this `int j = 2.3;`
+	I got:
+	"
+	test.c:6:13: warning: implicit conversion from 'double' to 'int' changes value from 2.3 to 2
+	      [-Wliteral-conversion]
+	    int j = 2.3;
+	"
+	Then I realize c would just pass this error and take it as a type conversion, which mean the first 2 bytes of memory of whatever I pass would be interpreted as an `int`
+
+	Obviously java taking care of this potential error is a wise choice, since nobody should mess with the type even if you want to.
+
+3.
+	I write a c program doing the exact same thing
+	```
+	-rw-r--r--  1 zhouhang  staff   929B Aug  3 10:52 SumOneToTen.class
+	-rw-r--r--@ 1 zhouhang  staff   242B Aug  3 10:52 SumOneToTen.java
+	-rwxr-xr-x  1 zhouhang  staff   8.2K Aug  3 11:03 test
+	-rw-r--r--  1 zhouhang  staff   175B Aug  3 11:01 test.c
+	-rw-r--r--  1 zhouhang  staff   840B Aug  3 11:06 test.o
+	```
+	the size of an executable compiled c program(8.2K) is way lager than a java executable(929B)
+
+4.
+	For me the weak-type language is harder to understand. Like python, the only type infomation of a variable counts on the naming style. Despite it has introspection ability, it's still tricky sometimes.
+
+	The weirdest bug is the leaked memory of c program, before I know how to properly use malloc and free, and the instructure of computer.
+
+	If the language gains more control of inspection of memory and type, and set strict limitation, tons of bugs would be caught during the compling stage.
+
+5. 
+	The multiple inheritance of python is hard to use and understand, since the `super` method is tricky to use. Besides python has a different Method Resolution Order. So tons of pitfalls in multi-inheritance.
+	Besides, generally more advanced language would be slower.

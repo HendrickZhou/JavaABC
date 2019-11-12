@@ -1,0 +1,31 @@
+1. 
+Q: List the size (number of bits used for representation) and maximum value for each of the following wrapper types: Short, Integer, Long and Double. Read the documentation for information on how to get these values.
+
+A:Members like MAX_VALUE and SIZE which will tell the answer.
+short	2 bytes	32,767
+int		4 bytes	2,147,483, 647
+long	8 bytes	9,223,372,036,854,775,807
+double	8 bytes	approximately 1.79769313486231570E+308
+
+2. 
+Q:What kind of problem would you run into with the following code and why?
+
+Double dObj = null;
+
+double d = dObj;
+
+A:java.lang.NullPointerException.
+dObj is a object which accept null but d is a primitive double so assigning a null doesn't make sense.
+
+3. 
+Q:Give suitable examples of data collections for each collection classes: LinkedList, ArrayList, and HashMap.
+
+A:LinkedList:adjacent table for graph.
+ArrayList:Just array
+HashMap:some table with mapping relationship between a key and a value
+
+4. 
+Q:Name some collection class implementations that you would like to see included with the JDK.
+
+A:LinkedList and HashMap
+I wonder how java implement pointer here?
